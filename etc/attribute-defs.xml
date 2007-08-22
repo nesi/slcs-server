@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!-- $Id: attribute-defs.xml,v 1.1 2007/08/22 11:38:03 vtschopp Exp $ -->
+
+<!--
+    Shibboleth attribute definition for the SWITCHaai federation.
+    See online documentation:
+        http://www.switch.ch/aai
+        http://www.switch.ch/aai/support/documents/attributes.html
+-->
+<AttributeDefinitions>
+	<AttributeDefinition
+		name="urn:mace:switch.ch:attribute-def:swissEduPersonUniqueID"
+		header="Shib-SwissEP-UniqueID" 
+		required="true"
+		displayName="AAI UniqueID" />
+	<AttributeDefinition 
+		name="urn:mace:dir:attribute-def:sn"
+		header="Shib-Person-surname" 
+		required="true" 
+		displayName="Lastname" />
+	<AttributeDefinition 
+		name="urn:mace:dir:attribute-def:givenName" 
+		header="Shib-InetOrgPerson-givenName"
+		required="true"
+		displayName="Firstname" />
+	<AttributeDefinition 
+		name="urn:mace:dir:attribute-def:mail"
+		header="Shib-InetOrgPerson-mail" 
+		required="true" 
+		displayName="Email" />
+	<AttributeDefinition 
+		name="urn:mace:dir:attribute-def:eduPersonAffiliation"
+		header="Shib-EP-Affiliation"
+		required="false" 
+		displayName="Affiliation" />
+	<AttributeDefinition
+		name="urn:mace:switch.ch:attribute-def:swissEduPersonHomeOrganization"
+		header="Shib-SwissEP-HomeOrganization" 
+		required="true"
+		displayName="Home Organization" />
+	<AttributeDefinition
+		name="urn:mace:switch.ch:attribute-def:swissEduPersonHomeOrganizationType"
+		header="Shib-SwissEP-HomeOrganizationType" 
+		required="false"
+		displayName="Home Organization Type" />
+</AttributeDefinitions>
+
