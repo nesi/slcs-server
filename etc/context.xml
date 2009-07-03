@@ -49,4 +49,18 @@ WEB-INF/web.xml file.
         override="false"
         type="java.lang.String"/>
 
+	<!-- Context parameter: absolute location of the whitelist file: protect the token servlet -->
+    <Parameter 
+        name="TokenServletWhitelist"
+        value="/opt/glite/etc/glite-slcs-server/whitelist.in"
+        override="false"
+        type="java.lang.String"/>
+        
+    <!-- Context parameter: absolute location of the token portal public keys -->
+    <Parameter 
+        name="ServiceCertDir"
+        value="/opt/glite/etc/glite-slcs-server/token-certs/"
+        override="false"
+        type="java.lang.String"/>
+
 </Context>

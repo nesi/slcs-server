@@ -66,7 +66,18 @@
 			/opt/glite/etc/glite-slcs-server/admin-acl.xml
 		</param-value>
 	</context-param>
-
+	<context-param>
+        <param-name>TokenServletWhitelist</param-name>
+        <param-value>
+            /opt/glite/etc/glite-slcs-server/whitelist.in
+        </param-value>
+    </context-param>
+    <context-param>
+        <param-name>ServiceCertDir</param-name>
+        <param-value>
+            /opt/glite/etc/glite-slcs-server/token-certs/
+        </param-value>
+    </context-param>
 
 
 	<!-- Shibboleth Authorization Filter -->
@@ -130,6 +141,11 @@
 		<filter-name>AdminAuthorizationFilter</filter-name>
 		<url-pattern>/admin/*</url-pattern>
 	</filter-mapping>
+	<!-- user ACL on TokenServlet -->
+	<filter-mapping>
+		<filter-name>LoginAuthorizationFilter</filter-name>
+		<servlet-name>SLCSTokenServlet</servlet-name>
+	</filter-mapping>
 
 
 	<!-- Servlets -->
@@ -146,6 +162,14 @@
 		<servlet-name>SLCSCertificateServlet</servlet-name>
 		<servlet-class>
 			org.glite.slcs.servlet.CertificateServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<display-name>SLCS Token</display-name>
+		<servlet-name>SLCSTokenServlet</servlet-name>
+		<servlet-class>
+			au.org.arcs.slcs.servlet.TokenServlet
 		</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
@@ -187,6 +211,10 @@
 	<servlet-mapping>
 		<servlet-name>SLCSCertificateServlet</servlet-name>
 		<url-pattern>/certificate</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SLCSTokenServlet</servlet-name>
+		<url-pattern>/token</url-pattern>
 	</servlet-mapping>
 	<!-- Admin interface (struts) Servlet Mapping -->
 	<servlet-mapping>
